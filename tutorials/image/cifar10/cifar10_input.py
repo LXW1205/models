@@ -77,7 +77,7 @@ def read_cifar10(filename_queue):
   # header or footer in the CIFAR-10 format, so we leave header_bytes
   # and footer_bytes at their default of 0.
   reader = tf.FixedLengthRecordReader(record_bytes=record_bytes)
-  result.key, value = reader.read(filename_queue)
+  result.key, value = reader.read(filename_queue)  #.read() 每次读取整个文件
 
   # Convert from a string to a vector of uint8 that is record_bytes long.
   record_bytes = tf.decode_raw(value, tf.uint8)
